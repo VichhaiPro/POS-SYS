@@ -1,0 +1,13 @@
+{
+  "name": "Travel Vlog",
+  "short_name": "Vlog",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "icons": [{
+    "src": "images/icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
