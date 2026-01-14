@@ -16,6 +16,7 @@ Created: January 14, 2026
         <div class="main-content">
             <header>
                 <h1>ប្រព័ន្ធ POS សម្រាប់ហាងស្ប៉ា</h1>
+                <button id="history-button" class="action-button">ប្រវត្តិ​ប្រតិបត្តិការ</button>
             </header>
             <div class="content-wrapper">
                 <div class="products-section">
@@ -81,6 +82,15 @@ Created: January 14, 2026
             <h2>ស្កេនដើម្បីទូទាត់ជាមួយ ABA</h2>
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020101021204240008A000000677010112080800000001130303800000000530370454041.005802KH5913YourStoreName6009PhnomPenh6304E8DE" alt="ABA QR Code" style="width: 250px; height: 250px; margin: 0 auto; display: block;">
             <p style="text-align: center; margin-top: 15px;">សូម​ស្កេន​កូដ​នេះ​ជាមួយ​កម្មវិធី ABA Mobile របស់​អ្នក។</p>
+        </div>
+    </div>
+
+    <!-- Transaction History Modal -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button history-close-button">&times;</span>
+            <h2>ប្រវត្តិ​ប្រតិបត្តិការ</h2>
+            <div id="history-list"></div>
         </div>
     </div>
 

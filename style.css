@@ -131,6 +131,22 @@ header h1 {
     font-weight: bold;
 }
 
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #5C55D6;
+}
+
 .cart-section {
     flex: 1.5; /* Slightly wider cart */
     background-color: var(--card-background);
@@ -388,6 +404,70 @@ header h1 {
     gap: 10px;
 }
 
+/* History Modal Styles */
+#history-modal .modal-content {
+    max-width: 600px;
+}
+
+#history-modal h2 {
+    color: var(--secondary-color);
+}
+
+#history-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: var(--background-light);
+}
+
+.history-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.history-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.history-item .history-date {
+    font-size: 12px;
+    color: var(--text-color-light);
+    text-align: right;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+}
+
+.history-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.history-item ul li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    border-bottom: 1px dotted #eee;
+    padding: 3px 0;
+}
+
+.history-item .history-total {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+    margin-top: 10px;
+    color: var(--primary-color);
+}
+
+
 /* Khmer font */
 body, h1, h2, h3, h4, h5, h6, button, input, p, span, li, div {
     font-family: 'Noto Sans Khmer', 'Inter', 'Helvetica Neue', sans-serif;
@@ -400,23 +480,12 @@ h1, h2, h3 {
 
 /* Print Styles */
 @page {
-    size: A4;
-    margin: 20mm;
+    size: 80mm auto; /* Common thermal printer width */
+    margin: 5mm;
 }
 
 @media print {
-    body, .pos-container, .main-content, .content-wrapper, .products-section, .cart-section {
-        display: block;
-        width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        border: none;
-        background-color: #fff;
-    }
-
-    header, .product-header, .product-grid, .cart-section, .modal, .action-button {
+    body, .pos-container, .main-content, .content-wrapper, .products-section, .cart-section, .modal, .action-button, header {
         display: none !important;
     }
     
@@ -426,68 +495,66 @@ h1, h2, h3 {
         top: 0;
         left: 0;
         width: 100%;
-        height: auto;
         padding: 0;
-        box-sizing: border-box;
+        margin: 0;
         color: #000;
-        border: 2px solid #000;
-        padding: 15px;
+        background-color: #fff;
     }
 
     #printable-invoice {
         width: 100%;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Courier New', Courier, monospace;
         color: #000;
+        font-size: 10pt; /* Smaller font size for labels */
     }
 
     #printable-invoice h1 {
         text-align: center;
-        font-size: 26px;
-        margin-bottom: 20px;
-        color: #000;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        font-size: 14pt;
+        margin: 0 0 10px 0;
+        padding: 0;
     }
     
     #printable-invoice p {
-        font-size: 14px;
-        margin: 5px 0;
-        line-height: 1.6;
+        font-size: 10pt;
+        margin: 2px 0;
+        line-height: 1.4;
     }
 
     #printable-invoice hr {
         border: 0;
         border-top: 1px dashed #000;
-        margin: 15px 0;
+        margin: 5px 0;
     }
 
     #invoice-items {
-        margin: 25px 0;
+        margin: 10px 0;
         width: 100%;
     }
 
     #invoice-items div {
         display: flex;
         justify-content: space-between;
-        padding: 8px 0;
-        font-size: 14px;
-        border-bottom: 1px solid #eee;
+        padding: 2px 0;
+        font-size: 10pt;
     }
     
     #invoice-items div span:first-child {
         text-align: left;
         flex-grow: 1;
+        margin-right: 10px;
+        white-space: pre-wrap; /* Allow wrapping for long item names */
     }
     
     #invoice-items div span:last-child {
         text-align: right;
+        white-space: nowrap;
     }
 
     #printable-invoice .thank-you {
         text-align: center;
-        margin-top: 30px;
-        font-size: 14px;
-        font-style: italic;
+        margin-top: 15px;
+        font-size: 10pt;
     }
 }
 

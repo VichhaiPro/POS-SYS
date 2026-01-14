@@ -53,15 +53,56 @@ document.addEventListener('DOMContentLoaded', () => {
         services.forEach(service => {
             const serviceElement = document.createElement('div');
             serviceElement.className = 'product-item'; // Keep class for styling
-            serviceElement.dataset.id = service.id;
+            
             serviceElement.innerHTML = `
                 <img src="${service.image}" alt="${service.name}" style="width: 100%; height: 100px; object-fit: cover; border-radius: 5px;">
-                <h3>${service.name}</h3>
-                <p>$${service.price.toFixed(2)}</p>
+                <h3 contenteditable="true" data-id="${service.id}" data-field="name">${service.name}</h3>
+                <p contenteditable="true" data-id="${service.id}" data-field="price">$${service.price.toFixed(2)}</p>
+                <button class="add-to-cart-btn" data-id="${service.id}">Add to Cart</button>
             `;
-            serviceElement.addEventListener('click', () => addServiceToCart(service));
             serviceGrid.appendChild(serviceElement);
         });
+
+        // Add event listeners for the new elements
+        document.querySelectorAll('.product-item h3, .product-item p').forEach(element => {
+            element.addEventListener('blur', updateService);
+        });
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const serviceId = parseInt(e.target.dataset.id, 10);
+                const service = services.find(s => s.id === serviceId);
+                addServiceToCart(service);
+            });
+        });
+    }
+
+    /**
+     * Updates a service's name or price.
+     */
+    function updateService(event) {
+        const element = event.target;
+        const id = parseInt(element.dataset.id, 10);
+        const field = element.dataset.field;
+        const value = element.textContent;
+
+        const service = services.find(s => s.id === id);
+
+        if (service) {
+            if (field === 'name') {
+                service.name = value;
+            } else if (field === 'price') {
+                const price = parseFloat(value.replace('$', ''));
+                if (!isNaN(price)) {
+                    service.price = price;
+                    // Re-render to format the price correctly
+                    renderServices();
+                } else {
+                    alert('Invalid price format.');
+                    // Restore original value
+                    element.textContent = `$${service.price.toFixed(2)}`;
+                }
+            }
+        }
     }
 
     /**
