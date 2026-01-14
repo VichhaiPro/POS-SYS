@@ -399,6 +399,11 @@ h1, h2, h3 {
 
 
 /* Print Styles */
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
 @media print {
     body, .pos-container, .main-content, .content-wrapper, .products-section, .cart-section {
         display: block;
@@ -411,7 +416,7 @@ h1, h2, h3 {
         background-color: #fff;
     }
 
-    header, .product-header, .product-grid, .cart-section h2, .total-section, .modal, .discount-section, #checkout-button, #print-invoice-button, .action-button {
+    header, .product-header, .product-grid, .cart-section, .modal, .action-button {
         display: none !important;
     }
     
@@ -422,54 +427,66 @@ h1, h2, h3 {
         left: 0;
         width: 100%;
         height: auto;
-        padding: 20px;
+        padding: 0;
         box-sizing: border-box;
         color: #000;
+        border: 2px solid #000;
+        padding: 15px;
     }
 
     #printable-invoice {
         width: 100%;
-        font-family: 'Georgia', serif; /* A more formal font for print */
+        font-family: 'Times New Roman', Times, serif;
         color: #000;
     }
 
     #printable-invoice h1 {
         text-align: center;
-        font-size: 28px;
-        margin-bottom: 15px;
+        font-size: 26px;
+        margin-bottom: 20px;
         color: #000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
     
     #printable-invoice p {
-        font-size: 15px;
-        margin: 4px 0;
-        line-height: 1.5;
+        font-size: 14px;
+        margin: 5px 0;
+        line-height: 1.6;
     }
 
     #printable-invoice hr {
-        border: 0.5px solid #ccc;
-        border-style: dashed none none;
+        border: 0;
+        border-top: 1px dashed #000;
         margin: 15px 0;
     }
 
     #invoice-items {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 10px;
+        margin: 25px 0;
+        width: 100%;
     }
 
     #invoice-items div {
         display: flex;
         justify-content: space-between;
-        padding: 5px 0;
-        font-size: 15px;
+        padding: 8px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
     }
     
-    .thank-you {
+    #invoice-items div span:first-child {
+        text-align: left;
+        flex-grow: 1;
+    }
+    
+    #invoice-items div span:last-child {
+        text-align: right;
+    }
+
+    #printable-invoice .thank-you {
         text-align: center;
         margin-top: 30px;
-        font-size: 16px;
+        font-size: 14px;
         font-style: italic;
     }
 }
