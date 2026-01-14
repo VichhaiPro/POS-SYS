@@ -3,44 +3,45 @@ File: index.html
 Created: January 14, 2026
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spa POS System</title>
+    <title>ប្រព័ន្ធ POS សម្រាប់ហាងស្ប៉ា</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Noto+Sans+Khmer:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="pos-container">
         <div class="main-content">
             <header>
-                <h1>Spa POS System</h1>
+                <h1>ប្រព័ន្ធ POS សម្រាប់ហាងស្ប៉ា</h1>
             </header>
             <div class="content-wrapper">
                 <div class="products-section">
                     <div class="product-header">
-                        <h2>Services</h2>
-                        <button id="add-item-button" class="action-button">Add Custom Service</button>
+                        <h2>សេវាកម្ម</h2>
+                        <button id="add-item-button" class="action-button">បន្ថែមសេវាកម្ម/ទំនិញថ្មី</button>
                     </div>
                     <div class="product-grid" id="product-grid">
-                        <!-- Services will be loaded here by JavaScript -->
+                        <!-- សេវាកម្មនឹងត្រូវបានបង្ហាញនៅទីនេះដោយ JavaScript -->
                     </div>
                 </div>
                 <div class="cart-section">
-                    <h2>Cart</h2>
+                    <h2>កន្ត្រកទំនិញ</h2>
                     <ul id="cart-items" class="cart-items">
-                        <!-- Cart items will be added here -->
+                        <!-- ទំនិញក្នុងកន្ត្រកនឹងត្រូវបានបន្ថែមនៅទីនេះ -->
                     </ul>
                     <div class="total-section">
                         <div class="discount-section">
-                            <input type="number" id="discount-percentage" placeholder="Discount %" min="0" max="100">
-                            <button id="apply-discount-button">Apply</button>
+                            <input type="number" id="discount-percentage" placeholder="បញ្ចុះតម្លៃ %" min="0" max="100">
+                            <button id="apply-discount-button">អនុវត្ត</button>
                         </div>
-                        <p>Subtotal: $<span id="cart-subtotal">0.00</span></p>
-                        <p>Discount: $<span id="cart-discount">0.00</span></p>
-                        <p class="final-total">Total: $<span id="cart-total">0.00</span></p>
-                        <button id="checkout-button">Checkout</button>
-                        <button id="print-invoice-button" class="action-button">Print Invoice</button>
+                        <p>តម្លៃសរុបរង: $<span id="cart-subtotal">0.00</span></p>
+                        <p>បញ្ចុះតម្លៃ: $<span id="cart-discount">0.00</span></p>
+                        <p class="final-total">តម្លៃសរុប: $<span id="cart-total">0.00</span></p>
+                        <button id="checkout-button">គិតលុយ</button>
+                        <button id="print-invoice-button" class="action-button">បោះពុម្ពវិក្កយបត្រ</button>
                     </div>
                 </div>
             </div>
@@ -48,28 +49,28 @@ Created: January 14, 2026
     </div>
 
     <!-- Add Custom Item Modal -->
-    <div id="add-item-modal" class="modal" style="display: none;">
+    <div id="add-item-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>Add Custom Service/Item</h2>
-            <input type="text" id="item-name-input" placeholder="Service/Item Name">
-            <input type="number" id="item-price-input" placeholder="Price" min="0">
-            <button id="save-item-button">Save Item</button>
+            <h2>បន្ថែមសេវាកម្ម/ទំនិញថ្មី</h2>
+            <input type="text" id="item-name-input" placeholder="ឈ្មោះសេវាកម្ម/ទំនិញ">
+            <input type="number" id="item-price-input" placeholder="តម្លៃ" min="0">
+            <button id="save-item-button">រក្សាទុក</button>
         </div>
     </div>
 
     <!-- Printable Invoice -->
     <div id="invoice-section" style="display: none;">
         <div id="printable-invoice">
-            <h1>Invoice</h1>
-            <p>Date: <span id="invoice-date"></span></p>
+            <h1>វិក្កយបត្រ</h1>
+            <p>កាលបរិច្ឆេទ: <span id="invoice-date"></span></p>
             <hr>
             <div id="invoice-items"></div>
             <hr>
-            <p>Subtotal: $<span id="invoice-subtotal"></span></p>
-            <p>Discount: $<span id="invoice-discount"></span></p>
-            <p><strong>Total: $<span id="invoice-total"></span></strong></p>
-            <p class="thank-you">Thank you for your business!</p>
+            <p>តម្លៃសរុបរង: $<span id="invoice-subtotal"></span></p>
+            <p>បញ្ចុះតម្លៃ: $<span id="invoice-discount"></span></p>
+            <p><strong>តម្លៃសរុប: $<span id="invoice-total"></span></strong></p>
+            <p class="thank-you">សូមអរគុណ!</p>
         </div>
     </div>
 

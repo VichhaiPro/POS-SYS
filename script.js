@@ -29,15 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State ---
     let cart = [];
     let services = [
-        { id: 1, name: 'Swedish Massage', price: 60.00 },
-        { id: 2, name: 'Deep Tissue Massage', price: 75.00 },
-        { id: 3, name: 'Hot Stone Massage', price: 85.00 },
-        { id: 4, name: 'Aromatherapy Facial', price: 50.00 },
-        { id: 5, name: 'Manicure', price: 30.00 },
-        { id: 6, name: 'Pedicure', price: 40.00 },
-        { id: 7, name: 'Body Wrap', price: 90.00 },
-        { id: 8, name: 'Waxing', price: 25.00 },
-        { id: 9, name: 'Yoga Session', price: 20.00 },
+        { id: 1, name: 'ម៉ាស្សាបែបស៊ុយអែដ', price: 60.00, image: '' },
+        { id: 2, name: 'ម៉ាស្សាសាច់ដុំជ្រៅ', price: 75.00, image: '' },
+        { id: 3, name: 'ម៉ាស្សាដោយប្រើថ្មក្តៅ', price: 85.00, image: '' },
+        { id: 4, name: 'ម៉ាស្សាមុខដោយប្រើប្រេងក្រអូប', price: 50.00, image: '' },
+        { id: 5, name: 'ធ្វើក្រចកដៃ', price: 30.00, image: '' },
+        { id: 6, name: 'ធ្វើក្រចកជើង', price: 40.00, image: '' },
+        { id: 7, name: 'រុំខ្លួន', price: 90.00, image: '' },
+        { id: 8, name: 'បករោម', price: 25.00, image: '' },
+        { id: 9, name: 'យូហ្គា', price: 20.00, image: '' },
     ];
     let discountPercent = 0;
 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             discountPercent = percentage;
             renderCart();
         } else {
-            alert('Please enter a valid discount percentage (0-100).');
+            alert('សូមបញ្ចូលភាគរយបញ្ចុះតម្លៃที่ត្រឹមត្រូវ (0-100)។');
         }
     }
 
@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function handleCheckout() {
         if (cart.length === 0) {
-            alert("Your cart is empty!");
+            alert("កន្ត្រកទំនិញរបស់អ្នកនៅទទេ!");
             return;
         }
-        alert(`Thank you for your purchase! Total: $${cartTotalSpan.textContent}`);
+        alert(`សូមអរគុណសម្រាប់ការទិញទំនិញ! តម្លៃសរុប: $${cartTotalSpan.textContent}`);
         
         // Clear cart and discount
         cart = [];
@@ -143,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const newService = {
                 id: services.length + 1, // Simple ID generation
                 name: name,
-                price: price
+                price: price,
+                image: ''
             };
             services.push(newService);
             renderServices();
@@ -151,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemNameInput.value = '';
             itemPriceInput.value = '';
         } else {
-            alert('Please enter a valid name and price.');
+            alert('សូមបញ្ចូលឈ្មោះ និងតម្លៃที่ត្រឹមត្រូវ។');
         }
     }
 
@@ -160,12 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function printInvoice() {
         if (cart.length === 0) {
-            alert("Cannot print an invoice for an empty cart.");
+            alert("មិនអាចបោះពុម្ពវិក្កយបត្រសម្រាប់កន្ត្រកទំនិញទទេបានទេ។");
             return;
         }
 
         // Populate invoice details
-        invoiceDate.textContent = new Date().toLocaleString();
+        invoiceDate.textContent = new Date().toLocaleString('km-KH');
         invoiceItems.innerHTML = '';
         cart.forEach(item => {
             const itemEl = document.createElement('div');
