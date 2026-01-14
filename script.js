@@ -31,15 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State ---
     let cart = [];
     let services = [
-        { id: 1, name: 'លុបស្នាមសាក់', price: 500.00, image: 'https://images.unsplash.com/photo-1544161515-cfd836b04e94?q=80&w=1974&auto=format&fit=crop' },
-        { id: 2, name: 'ចាក់បំពេញមុខ', price: 75.00, image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop' },
-        { id: 3, name: 'ធ្វើច្រមុះ', price: 1500.00, image: 'https://images.unsplash.com/photo-1599442315179-9b410984a86f?q=80&w=1974&auto=format&fit=crop' },
+        { id: 1, name: 'ម៉ាស្សាបែបស៊ុយអែដ', price: 60.00, image: 'https://images.unsplash.com/photo-1544161515-cfd836b04e94?q=80&w=1974&auto=format&fit=crop' },
+        { id: 2, name: 'ម៉ាស្សាសាច់ដុំជ្រៅ', price: 75.00, image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop' },
+        { id: 3, name: 'ម៉ាស្សាដោយប្រើថ្មក្តៅ', price: 85.00, image: 'https://images.unsplash.com/photo-1599442315179-9b410984a86f?q=80&w=1974&auto=format&fit=crop' },
         { id: 4, name: 'ម៉ាស្សាមុខដោយប្រើប្រេងក្រអូប', price: 50.00, image: 'https://images.unsplash.com/photo-1598205499639-58e1927d353b?q=80&w=2070&auto=format&fit=crop' },
-        { id: 5, name: 'ញិចមុន', price: 30.00, image: 'https://images.unsplash.com/photo-1604654894610-df63bc595122?q=80&w=2070&auto=format&fit=crop' },
-        { id: 6, name: 'បបូមមាត់បេះដូង', price: 120.00, image: 'https://images.unsplash.com/photo-1596704017254-972127236d87?q=80&w=2070&auto=format&fit=crop' },
-        { id: 7, name: 'PRP ព្យាបាលមុខមុន', price: 90.00, image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop' },
+        { id: 5, name: 'ធ្វើក្រចកដៃ', price: 30.00, image: 'https://images.unsplash.com/photo-1604654894610-df63bc595122?q=80&w=2070&auto=format&fit=crop' },
+        { id: 6, name: 'ធ្វើក្រចកជើង', price: 40.00, image: 'https://images.unsplash.com/photo-1596704017254-972127236d87?q=80&w=2070&auto=format&fit=crop' },
+        { id: 7, name: 'រុំខ្លួន', price: 90.00, image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop' },
         { id: 8, name: 'បករោម', price: 25.00, image: 'https://images.unsplash.com/photo-1585771816844-a71f034a7fb2?q=80&w=2070&auto=format&fit=crop' },
-        { id: 9, name: 'សម្អាតរ៉ោមក្លៀក និង​ ប៊ីគីនី', price: 20.00, image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop' },
+        { id: 9, name: 'យូហ្គា', price: 20.00, image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop' },
     ];
     let discountPercent = 0;
 
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             discountPercent = percentage;
             renderCart();
         } else {
-            alert('សូមបញ្ចូលភាគរយបញ្ចុះតម្លៃ ត្រឹមត្រូវ (0-100)។');
+            alert('សូមបញ្ចូលភាគរយបញ្ចុះតម្លៃที่ត្រឹមត្រូវ (0-100)។');
         }
     }
 
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemNameInput.value = '';
             itemPriceInput.value = '';
         } else {
-            alert('សូមបញ្ចូលឈ្មោះ និងតម្លៃត្រឹមត្រូវ។');
+            alert('សូមបញ្ចូលឈ្មោះ និងតម្លៃที่ត្រឹមត្រូវ។');
         }
     }
 
